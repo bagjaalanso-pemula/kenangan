@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenangan Mantan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Cormorant+Garamond:wght@500;600&family=JetBrains+Mono:wght@300;400&family=Homemade+Apple&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.2 4.5 6.7 4.5c2 0 3.6 1.1 5.3 3 1.7-1.9 3.3-3 5.3-3 3.5 0 5.7 3.5 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg>
+    Kenangan Indah
+  </div>
+  <nav class="topnav">
+    <a href="#beranda" class="active">Beranda</a>
+    <a href="#galeri">Foto</a>
+    <a href="#musik">Musik</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#balikan">Balikan?</a>
+    <button id="themeBtn" title="Ganti tema"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+  </nav>
+</header>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <div class="tag script">Just a girl...</div>
+  <h1>Kenangan<br>&nbsp;&nbsp;Indah</h1>
+  <p class="tagline">Beberapa kenangan memang tidak bisa dilupakan, meski sudah tidak lagi bersama.</p>
+
+  <nav class="side-nav">
+    <a href="#beranda" class="active"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>Beranda</a>
+    <a href="#galeri"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg>Foto</a>
+    <a href="#musik"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Musik</a>
+    <a href="#tentang"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>Tentang</a>
+    <a href="#balikan"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.2 4.5 6.7 4.5c2 0 3.6 1.1 5.3 3 1.7-1.9 3.3-3 5.3-3 3.5 0 5.7 3.5 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg>Balikan?</a>
+  </nav>
+
+  <div class="thanks script">Terima kasih<br>untuk semua<br>ceritanya... ♡</div>
+
+  <!-- Mini player (tersinkron dengan menu Musik) -->
+  <div class="player">
+    <button id="miniPlay" aria-label="Putar / jeda"><svg id="miniIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <div class="p-info">
+      <div id="miniTitle" class="p-title">Pilih lagu</div>
+      <div class="p-bar" id="miniBar"><span id="miniFill"></span></div>
+      <div class="p-time"><span id="miniCur">0:00</span> / <span id="miniDur">0:00</span></div>
+    </div>
+  </div>
+</aside>
+
+<main>
+  <!-- ================= BERANDA ================= -->
+  <section id="beranda" class="hero">
+    <div class="hero-img" id="heroImg"></div>
+    <div class="tape a"></div><div class="tape b"></div>
+    <div class="hero-quote script">
+      “Dulu, kamu adalah hal paling indah yang pernah datang dalam hidupku.”
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.2 4.5 6.7 4.5c2 0 3.6 1.1 5.3 3 1.7-1.9 3.3-3 5.3-3 3.5 0 5.7 3.5 4.2 7.2C19.5 16.4 12 21 12 21z"/></svg>
+    </div>
+  </section>
+
+  <!-- ================= FOTO ================= -->
+  <section id="galeri" class="gallery">
+    <div class="g-head">
+      <h2><svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a1 1 0 011 1v11a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.5"/></svg>Galeri Kenangan <span class="count" id="photoCount"></span></h2>
+      <div class="g-note script">Kamu selalu<br>jadi bagian<br>terindah... ♡</div>
+    </div>
+    <p class="g-sub">Setiap foto punya cerita, dan setiap cerita punya rasa.</p>
+    <div class="grid" id="grid"></div>
+    <div class="pager" id="pager"></div>
+  </section>
+
+  <!-- ================= MUSIK ================= -->
+  <section id="musik" class="gallery">
+    <div class="g-head">
+      <h2><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Lagu Kenangan</h2>
+      <div class="g-note script">Setiap lagu<br>punya wajahmu... ♡</div>
+    </div>
+    <p class="g-sub">Putar lagu-lagu yang dulu sering kita dengar.</p>
+
+    <div class="music-wrap">
+      <div class="now">
+        <div class="disc" id="disc"><div class="hole"></div></div>
+        <div class="now-title" id="nowTitle">Belum ada lagu</div>
+        <div class="now-artist" id="nowArtist">Pilih dari daftar</div>
+        <div class="p-bar big" id="bigBar"><span id="bigFill"></span></div>
+        <div class="p-time row"><span id="bigCur">0:00</span><span id="bigDur">0:00</span></div>
+        <div class="controls">
+          <button id="shuffleBtn" title="Acak" class="small"><svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></button>
+          <button id="prevBtn" title="Sebelumnya"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+          <button id="bigPlay" class="main" title="Putar / jeda"><svg id="bigIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+          <button id="nextBtn" title="Berikutnya"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+          <button id="repeatBtn" title="Ulangi lagu" class="small"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 014-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/></svg></button>
+        </div>
+        <label class="vol">🔈 <input type="range" id="vol" min="0" max="1" step="0.05" value="0.8"></label>
+        <div class="music-msg" id="musicMsg"></div>
+      </div>
+      <ol class="playlist" id="playlist"></ol>
+    </div>
+  </section>
+
+  <!-- ================= TENTANG ================= -->
+  <section id="tentang" class="block">
+    <h2>Tentang</h2>
+    <p>Website ini adalah ruang kecil untuk menyimpan potongan-potongan cerita. Tidak untuk kembali ke masa lalu, hanya untuk mengingat bahwa pernah ada yang berarti.</p>
+    <p>buat kamu, seseorang yang sampai sekarang masih punya tempat tersendiri di hati aku.
+
+jujur, sampai sekarang aku masih sering kangen sama kamu. kadang aku sendiri bingung kenapa perasaan ini masih ada, padahal sekarang kita udah nggak sama-sama lagi. aku kira setelah semuanya selesai, aku bakal terbiasa tanpa kehadiran kamu, bakal terbiasa ngejalanin hari-hari tanpa cerita sama kamu, dan bakal terbiasa ngeliat semuanya berubah. tapi ternyata nggak semudah itu. ada hal-hal yang masih bikin aku inget kamu, ada momen-momen kecil yang tiba-tiba bikin aku kangen, bahkan ada saatnya aku pengen banget cerita sesuatu ke kamu, tapi akhirnya cuma bisa diem karena aku sadar kalau sekarang semuanya udah berbeda.
+
+aku kangen kita yang dulu. kangen obrolan sederhana yang kadang nggak penting, kangen bercanda bareng kamu, kangen nungguin pesan dari kamu, dan kangen perasaan bahagia yang muncul cuma karena kamu ngasih perhatian kecil. mungkin buat kamu semua itu udah jadi bagian dari masa lalu, tapi buat aku, kenangan itu masih tersimpan dengan baik. terkadang aku buka kembali kenangan kita, bukan karena aku nggak mau melangkah maju, tapi karena ada bagian dari masa lalu yang masih terasa hangat saat diingat, meskipun sekarang cuma bisa aku kenang sendirian.
+
+yang paling bikin aku sedih adalah ketika aku sadar kalau orang yang dulu paling sering aku ajak cerita, sekarang justru jadi orang yang paling aku rindukan dari kejauhan. dulu aku bisa tahu bagaimana harimu, apa yang bikin kamu senang, apa yang bikin kamu sedih, dan hal-hal kecil yang terjadi sama kamu. sekarang aku nggak bisa lagi mengetahui semuanya seperti dulu. aku cuma bisa berharap kamu baik-baik aja, berharap harimu menyenangkan, dan berharap kamu selalu punya alasan buat tersenyum, meskipun aku udah nggak menjadi alasan di balik senyum kamu.
+
+aku nggak akan bohong dengan bilang kalau aku udah sepenuhnya lupa. kenyataannya, aku masih sayang sama kamu. mungkin aku nggak selalu nunjukin itu, mungkin aku juga nggak selalu membicarakannya, tapi bukan berarti perasaan itu langsung hilang begitu aja. ada perasaan yang ternyata nggak bisa selesai hanya karena sebuah hubungan udah berakhir. aku masih ingat bagaimana rasanya punya kamu, bagaimana rasanya merasa dekat sama kamu, dan bagaimana bahagianya aku ketika dulu kita masih saling memilih.
+
+kadang aku bertanya-tanya, apa kamu pernah kangen sama aku juga? apa kamu pernah tiba-tiba inget kita saat mendengar lagu tertentu? apa kamu pernah membaca kembali percakapan lama kita dan tersenyum sendiri? atau mungkin sekarang kamu udah benar-benar terbiasa tanpa aku, sementara aku masih belajar menerima kenyataan bahwa seseorang yang dulu begitu dekat sekarang punya kehidupan sendiri. aku nggak tahu jawabannya, dan mungkin aku memang nggak perlu tahu. aku cuma terkadang penasaran apakah kenangan kita masih punya arti yang sama buat kamu, atau semuanya sekarang cuma menjadi cerita lama yang sesekali lewat di ingatan kamu.
+
+seandainya aku bisa mengulang waktu, mungkin ada beberapa hal yang pengen aku perbaiki. mungkin ada kata-kata yang seharusnya aku ucapkan dengan lebih baik, ada sikap yang seharusnya aku pahami, dan ada kesempatan yang seharusnya aku hargai lebih dalam. aku tahu kita nggak bisa mengulang semuanya sesuka hati, dan aku juga sadar kalau masa lalu nggak selalu bisa diperbaiki. tapi kalau ada satu hal yang aku sesali, mungkin itu adalah ketika aku baru benar-benar memahami betapa berharganya beberapa momen setelah semuanya nggak lagi sama.
+
+aku kangen kamu, bukan cuma kangen karena terbiasa punya seseorang, tapi karena aku memang merindukan kamu sebagai diri kamu sendiri. aku kangen cara kamu berbicara, cara kamu menanggapi cerita aku, dan hal-hal sederhana yang mungkin nggak akan dipahami orang lain. aku kangen perasaan nyaman saat bisa menjadi diri sendiri di dekat kamu. aku kangen masa ketika aku nggak perlu berpikir panjang untuk menghubungi kamu, karena saat itu kamu masih menjadi tempat yang terasa dekat untuk berbagi cerita.
+
+tapi di balik semua rasa kangen ini, aku juga belajar kalau menyayangi seseorang nggak selalu berarti kita bisa terus memilikinya. terkadang kita harus menerima bahwa ada hal-hal yang sudah berubah, ada cerita yang sudah sampai di bagian akhirnya, dan ada seseorang yang harus kita kenang tanpa bisa kita ajak kembali ke masa lalu. bukan karena rasa sayangnya nggak ada, melainkan karena kenyataan nggak selalu berjalan sesuai apa yang kita inginkan.
+
+kalau sekarang kamu bahagia, aku harap kamu benar-benar bahagia. aku harap kamu menemukan banyak hal baik, bertemu orang-orang yang menghargai kamu, dan mendapatkan kasih sayang yang membuat kamu merasa cukup. tentu ada bagian dari diri aku yang masih berharap bisa menjadi seseorang yang membuat kamu bahagia seperti dulu, tapi aku juga nggak mau kebahagiaan kamu bergantung pada aku. aku ingin kamu baik-baik aja, bahkan ketika aku bukan lagi orang yang menemani hari-hari kamu.
+
+aku nggak tahu apakah suatu hari nanti kita akan punya kesempatan untuk berbicara lagi seperti dulu. aku nggak tahu apakah waktu akan mempertemukan kita kembali dalam keadaan yang berbeda, atau justru membawa kita semakin jauh. aku juga nggak tahu apakah perasaan ini nantinya akan berubah menjadi kenangan yang bisa aku ingat tanpa merasa sesakit sekarang. untuk saat ini, aku cuma bisa menjalani semuanya perlahan, belajar menerima, dan mencoba memahami bahwa merindukan seseorang adalah hal yang wajar, meskipun orang itu sudah nggak lagi bersama kita.
+
+kalau suatu hari kamu ingat aku, aku harap kamu nggak cuma mengingat hal-hal buruk yang pernah terjadi di antara kita. aku harap kamu juga ingat tawa kita, obrolan panjang kita, perhatian kecil yang pernah kita berikan, dan semua momen ketika kita benar-benar bahagia bersama. aku nggak berharap kamu harus kembali hanya karena aku masih menyimpan perasaan ini. aku cuma ingin semua yang pernah kita jalani tetap punya arti, meskipun akhirnya kita nggak berjalan sampai tujuan yang sama.
+
+dan kalau kamu bertanya apakah aku masih sayang, jawabannya mungkin masih iya. kalau kamu bertanya apakah aku masih kangen, jawabannya juga iya. aku masih merindukan seseorang yang pernah menjadi bagian penting dari hidup aku. aku masih sesekali berharap bisa mendengar cerita kamu lagi, mengetahui kabar kamu, dan berbicara tanpa ada jarak seperti sekarang. tapi untuk semua hal yang nggak bisa aku sampaikan langsung kepada kamu, biarlah tulisan ini menjadi tempat aku menitipkan perasaan yang masih tersisa.
+
+terima kasih karena pernah hadir di hidup aku. terima kasih karena pernah membuat aku merasakan bahagia dengan cara yang sederhana. aku nggak tahu bagaimana kamu akan mengingat aku nantinya, tapi aku akan selalu menghargai kenyataan bahwa kita pernah saling mengenal dan menjadi bagian dari cerita satu sama lain.
+
+aku masih sayang kamu, aku masih kangen kamu, dan mungkin untuk sekarang aku belum sepenuhnya bisa terbiasa dengan semuanya. tapi aku akan tetap belajar menerima apa pun yang sudah terjadi. bukan berarti aku harus melupakan kamu secepat mungkin, bukan juga berarti aku harus terus menunggu sesuatu yang belum tentu kembali. aku hanya ingin menyimpan kenangan ini dengan baik, sambil perlahan belajar menjalani hari-hari yang baru.
+
+kalau memang kita cuma ditakdirkan menjadi bagian dari masa lalu satu sama lain, aku harap suatu hari nanti aku bisa mengenang kamu dengan hati yang lebih tenang. dan kalau suatu saat nama kamu kembali terlintas di pikiran aku, semoga yang tersisa bukan cuma rasa kehilangan, melainkan juga rasa syukur karena aku pernah mengenal kamu.
+
+buat kamu, yang sampai sekarang masih aku sayang dan aku kangenin, semoga kamu selalu baik-baik aja, ya. mungkin sekarang aku nggak bisa lagi mengucapkan itu setiap hari seperti dulu, tapi aku tetap berharap hal-hal baik selalu datang ke hidup kamu.
+
+aku kangen kamu. lebih dari yang bisa aku jelasin lewat kata-kata. dan meskipun sekarang aku cuma bisa menyampaikan semuanya lewat tulisan ini, satu hal yang ingin kamu tahu adalah bahwa apa yang pernah kita punya nggak pernah menjadi sesuatu yang nggak berarti buat aku. kamu pernah menjadi bagian dari kebahagiaan aku, dan sampai hari ini, kenangan tentang kamu masih menjadi salah satu cerita yang belum sepenuhnya selesai di hati aku..</p>
+    <div class="paper script">Mungkin tidak bisa kembali, tapi akan selalu ada di dalam hati. ♡</div>
+  </section>
+
+  <!-- ================= BALIKAN ================= -->
+  <section id="balikan" class="block balikan">
+    <h2>Kamu mau balikan ga?</h2>
+    <p>Jawab langsung lewat chat WhatsApp ya.</p>
+    <div class="paper script">Kamu mau balikan ga? ♡</div>
+    <div class="wa-btns">
+      <a id="btnMau" class="wa-btn" target="_blank" rel="noopener">Mau ♡</a>
+      <a id="btnBelum" class="wa-btn ghost" target="_blank" rel="noopener">Belum dulu</a>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Kenangan Indah — dibuat dengan hati yang tulus.</footer>
+
+<!-- ================= LIGHTBOX FOTO ================= -->
+<div class="lb" id="lb">
+  <button class="lb-nav prev" id="lbPrev">‹</button>
+  <div class="polaroid" id="lbCard"></div>
+  <button class="lb-nav next" id="lbNext">›</button>
+  <button class="lb-close" id="lbClose">✕</button>
+</div>
+
+<audio id="audio" preload="metadata"></audio>
+<script src="script.js"></script>
+</body>
+</html>
